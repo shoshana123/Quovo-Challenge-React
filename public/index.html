@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width initial-scale=1.0'>
-    <title>Boilermaker</title>
-    <link rel="stylesheet" href="/style.css" />
-    <script defer src="/bundle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quovo Challenge</title>
+    <link rel=stylesheet href='main.css' />
+    <link rel="icon" type="image/png" href="Quovo.png" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type='text/javascript'src='axiosRequests.js'></script>
+    <script type='text/javascript' src='main.js' defer></script>
+    <script type='text/javascript' src='utilityFunctions.js' defer></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id='title'>
+      <h1>Quovo Front-End Challenge</h1>
+    </div>
+    <div id='container'>
+      <div class='table'>
+        <h2>Holdings Table</h2>
+        <table>
+          <thead>
+            <tr class='holdingsRow'>
+              <th>Account ID</th>
+              <th>Ticker Name</th>
+              <th>Ticker</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id = 'holdingsTableBody'>
+          </tbody>
+        </table>
+      </div>
+      <div class='table'>
+        <h2>Account Type Table</h2>
+        <table>
+          <thead>
+            <th>Type</th>
+            <th>Sum</th>
+            <th>Percent of Total</th>
+          </thead>
+          <tbody id='accountsTableBody'>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
-
