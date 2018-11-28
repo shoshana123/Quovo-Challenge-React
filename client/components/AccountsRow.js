@@ -1,8 +1,11 @@
 import React from 'react'
+import { mapAccountIdsToType, sumByAccountType, formatPrice } from '../utilityFunctions';
 
 export default (props) => {
-  const {holdingsData, accountsData} = props
-  console.log('check',holdingsData, accountsData )
+  const {total, accountsData} = props
+  const accountTypesObj = mapAccountIdsToType(accountsData)
+  const accountTypes = Object.keys(accountTypesObj)
+  console.log('acctoun',accountTypes)
   return (
     <table>
       <tbody>
@@ -11,6 +14,18 @@ export default (props) => {
           <th>Sum</th>
           <th>Percent of Total</th>
         </tr>
+        { accountTypes.map(type => {
+          return(
+          <tr key={type}>
+          <td>{type}</td>
+          <td>
+          {formatPrice(sumByAccountType(accountTypesObj[type]))}</td>
+          <td>{formatPrice(sumByAccountType(accountTypesObj[type])/total*100)+'%'}</td>
+          </tr>
+          )
+        })
+
+        }
       </tbody>
     </table>
 

@@ -1,27 +1,4 @@
-export const mapAccountIdsToType = (arr) =>{
-  let accountType = {}
-
-  // create an object with the key account type and the value an array of all account IDs associated with the account type
-  arr.forEach(account => {
-    if(!accountType[account.type]) accountType[account.type] = [account.id]
-    else accountType[account.type].push(account.id)
-  })
-  return accountType
-}
-
-export const sumByAccountType = (acctIdsArr) => {
-  let sumValue = 0
-
-  // loop through each accountId, filter the holdings data array for the accountIds and add the value of each holding
-  for(let i = 0; i < acctIdsArr.length; i++){
-    sumValue += state.holdings.filter(elem=> elem.account_id === acctIdsArr[i]).reduce((accum,elem) => {
-        value = elem.price * elem.quantity
-        return accum + value
-      },0)
-    }
-    return sumValue
-}
-
+import holdingsData from '../../data/holdings'
 
 export const formatPrice = (price) => {
   price = price.toFixed(2)
@@ -41,6 +18,29 @@ export const formatPrice = (price) => {
   return price
 }
 
+export const mapAccountIdsToType = (arr) =>{
+  let accountType = {}
+
+  // create an object with the key account type and the value an array of all account IDs associated with the account type
+  arr.forEach(account => {
+    if(!accountType[account.type]) accountType[account.type] = [account.id]
+    else accountType[account.type].push(account.id)
+  })
+  return accountType
+}
+
+export const sumByAccountType = (acctIdsArr) => {
+  let sumValue = 0
+
+  // loop through each accountId, filter the holdings data array for the accountIds and add the value of each holding
+  for(let i = 0; i < acctIdsArr.length; i++){
+    sumValue += holdingsData.Positions.filter(elem=> elem.account_id === acctIdsArr[i]).reduce((accum,elem) => {
+        let value = elem.price * elem.quantity
+        return accum + value
+      },0)
+    }
+    return sumValue
+}
 
 export function sortTable(data) {
   return data.sort((row1,row2)=>{
