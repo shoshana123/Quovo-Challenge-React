@@ -1,13 +1,17 @@
 import React from 'react'
 import {formatNumber, sortTable} from '../utilityFunctions'
 
-export default (props) => {
+const HoldingsRow = (props) => {
   let {data} = props
-  data = sortTable(data)
+
+  // sort data by quantity
+  data.sort((row1,row2)=>row2.quantity-row1.quantity)
+
   return (
     <div>
       <table>
         <tbody>
+          {/* create table headers */}
               <tr className='holdingsRow'>
                 <th>Account ID</th>
                 <th>Ticker Name</th>
@@ -15,6 +19,8 @@ export default (props) => {
                 <th>Price</th>
                 <th>Quantity</th>
               </tr>
+
+              {/* map over data to create rows */}
               {data.map(row => {
                 return (
                     <tr key={row.id}>
@@ -31,3 +37,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default HoldingsRow

@@ -45,7 +45,7 @@ export const accountTableData = (acctIdsObj) => {
           },0)
         }
 
-      //create data object with account type and sum to push into acctData Array so that can loop through array in React Component
+      //create data object with account type and sum to push into acctData Array so that you can loop through array in React Component
         let dataObj = {
           type: type,
           sum: sumValue
@@ -55,9 +55,3 @@ export const accountTableData = (acctIdsObj) => {
     }
     return acctDataArr
   }
-
-export function sortTable(data) {
-  return data.sort((row1,row2)=>{
-    return row2.quantity-row1.quantity
-  })
-}

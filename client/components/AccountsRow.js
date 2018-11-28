@@ -1,7 +1,7 @@
 import React from 'react'
 import { mapAccountIdsToType, accountTableData, formatNumber } from '../utilityFunctions';
 
-const accountRow = (props) => {
+const AccountRow = (props) => {
   const {total, accountsData} = props
   const accountTypesObj = mapAccountIdsToType(accountsData)
   const data = accountTableData(accountTypesObj)
@@ -14,8 +14,9 @@ const accountRow = (props) => {
           <th>Sum</th>
           <th>Percent of Total</th>
         </tr>
+
+        {/* map over the data array generated from the utility function accountTableData */}
         { data.map(typeObj => {
-          let typeSum = accountTableData(accountTypesObj[typeObj])
           return(
           <tr key={typeObj.type}>
           <td>{typeObj.type}</td>
@@ -24,12 +25,11 @@ const accountRow = (props) => {
           <td>{formatNumber(typeObj.sum /total*100)+'%'}</td>
           </tr>
           )
-        })
+         })
         }
       </tbody>
     </table>
-
   )
 }
 
-export default accountRow
+export default AccountRow
