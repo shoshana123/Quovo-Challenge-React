@@ -5,7 +5,7 @@ import AccountsTable from './components/AccountsTable'
 
 const App = () => {
   return (
-    <div>
+    <div id='container'>
       <HoldingsTable />
       <AccountsTable />
     </div>
