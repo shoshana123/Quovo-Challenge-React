@@ -1,5 +1,5 @@
 import React from 'react'
-import {formatPrice, sortTable} from '../utilityFunctions'
+import {formatNumber, sortTable} from '../utilityFunctions'
 
 export default (props) => {
   let {data} = props
@@ -21,7 +21,7 @@ export default (props) => {
                     <td>{row.account_id}</td>
                     <td>{row.ticker_name}</td>
                     <td>{row.ticker}</td>
-                    <td>{formatPrice(row.price)}</td>
+                    <td>{formatNumber(row.price)}</td>
                     <td>{row.quantity}</td>
                     </tr>
                 )

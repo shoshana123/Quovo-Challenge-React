@@ -1,6 +1,6 @@
 import holdingsData from '../../data/holdings'
 
-export const formatPrice = (price) => {
+export const formatNumber = (price) => {
   price = price.toFixed(2)
   let sliceIdx = price.indexOf('.')
 

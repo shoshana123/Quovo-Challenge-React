@@ -1,5 +1,5 @@
 import React from 'react'
-import { mapAccountIdsToType, sumByAccountType, formatPrice } from '../utilityFunctions';
+import { mapAccountIdsToType, sumByAccountType, formatNumber } from '../utilityFunctions';
 
 export default (props) => {
   const {total, accountsData} = props
@@ -19,8 +19,8 @@ export default (props) => {
           <tr key={type}>
           <td>{type}</td>
           <td>
-          {formatPrice(typeSum)}</td>
-          <td>{formatPrice(typeSum /total*100)+'%'}</td>
+          {formatNumber(typeSum)}</td>
+          <td>{formatNumber(typeSum /total*100)+'%'}</td>
           </tr>
           )
         })
