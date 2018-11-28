@@ -4,7 +4,6 @@ import {formatPrice, sortTable} from '../utilityFunctions'
 export default (props) => {
   let {data} = props
   data = sortTable(data)
-  console.log('data',data)
   return (
     <div>
       <table>

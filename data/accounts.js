@@ -1,4 +1,4 @@
-{
+export default {
   "Accounts": [
     {
       "id": 52697,
