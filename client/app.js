@@ -1,5 +1,4 @@
 import React from 'react'
-
 import HoldingsTable from './components/HoldingsTable'
 import AccountsTable from './components/AccountsTable'
 
